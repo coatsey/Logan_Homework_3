@@ -1,6 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+
 function isNumeric(num){
   if (num.indexOf(".") > -1)
   {
@@ -25,19 +26,47 @@ function generatePassword() {
     }
 
   if (inNumeric(lengthStr) == false)
-  {
+    {
     alert("Error! Not a number.");
-  }
+    }
 
   lengthInt = parseInt(lengthStr);
   if (lengthInt < 8)
-  {
-    alert("Error! Password must have atleast 8 charcters");
+   {
+    alert("Error! Password must have atleast 8 characters");
     return "";
-  }
+   }
+  if (lengthInt > 128)
+   {
+    alert("Error! Password must be less than 129 characters");
+    return "";
+    }
+  if (window.confirm ("Do you want your pssword to include special characters?", "") == true)
+    {
+      characterCheck += "!@#$%^&*()_-+={};:?.,><";
+    }
+  if (window.confirm ("Do you want your password to include Upper case letters?", "") == true)
+    {
+      characterCheck += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+  if (window.confirm ("Do you want your password to havr lower case letters?","") == true)
+    {
+      characterCheck += "abcdefghijklmnopqrstuvwxyz";
+    }
+  if (window.confirm ("Do you want your password to include numbers?", "") == true)
+    {
+      characterCheck += "1234567890";
+    }
+  if (characterCheck == "")
+    {
+      alert("Error! No input");
+      return "";
+    }
+
+    characterCheckLength = characterCheck.length;
+
+
 }
-
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
