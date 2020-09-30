@@ -21,23 +21,23 @@ function generatePassword() {
 
   if (lengthStr == "")
     {
-    alert("Error! Input does not meet criteria");
-    return "";
+      alert("Error! Input does not meet criteria");
+      return "";
     }
 
-  if (inNumeric(lengthStr) == false)
+  if (isNumeric(lengthStr) == false)
     {
     alert("Error! Not a number.");
     }
 
   lengthInt = parseInt(lengthStr);
   if (lengthInt < 8)
-   {
+    {
     alert("Error! Password must have atleast 8 characters");
     return "";
-   }
+    }
   if (lengthInt > 128)
-   {
+    {
     alert("Error! Password must be less than 129 characters");
     return "";
     }
