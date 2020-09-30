@@ -17,7 +17,7 @@ function generatePassword() {
   var characterCheckLength;
   var characterCheck = "";
   var lengthInt;
-  var lengthStr = window.prompt ("How many many characters do you want your password to have?:','");
+  var lengthStr = window.prompt ("How many many characters do you want your password to have?","");
 
   if (lengthStr == "")
     {
@@ -65,6 +65,13 @@ function generatePassword() {
 
     characterCheckLength = characterCheck.length;
 
+
+  for (var i = 0; i < lengthInt; i++) 
+    {
+      passwordStrn += characterCheck.charAt(Math.floor(Math.random() * characterCheckLength))
+    }
+  
+    return passwordStrn;
 
 }
 // Write password to the #password input
