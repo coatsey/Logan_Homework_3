@@ -19,11 +19,22 @@ function generatePassword() {
   var lengthStr = window.prompt ("How many many characters do you want your password to have?:','");
 
   if (lengthStr == "")
-  {
+    {
     alert("Error! Input does not meet criteria");
     return "";
+    }
+
+  if (inNumeric(lengthStr) == false)
+  {
+    alert("Error! Not a number.");
   }
-  
+
+  lengthInt = parseInt(lengthStr);
+  if (lengthInt < 8)
+  {
+    alert("Error! Password must have atleast 8 charcters");
+    return "";
+  }
 }
 
 
